@@ -114,14 +114,6 @@ ids = vectors.add_documents(documents=documents)
 print(ids)
 
 # ---------------------------------
-# Getting data from chroma
-# ---------------------------------
-
-# data = vectors.get(include=['embeddings','metadatas','documents'])
-
-# print(data)
-
-# ---------------------------------
 # Similarity Search in chroma
 # ---------------------------------
 
@@ -133,32 +125,8 @@ print(ids)
 # similarity search with score in chroma
 # ---------------------------------
 
-
 similar_score = vectors.similarity_search_with_score(query="which is he best suv for off roading.",k=3)
 
 print(similar_score)
 
-# ---------------------------------
-# Updating documents into chroma
-# --------------------------------
-
-update_cars = Document(
-   page_content="""
-           The BMW 3 Series is a luxury sports sedan that combines performance,
-           premium interiors, and advanced technology. It provides responsive
-           handling and a powerful engine, making it popular among drivers who
-           want both comfort and sporty performance.
-           """,
-           metadata={
-               "brand": "BMW",
-               "model": "M3 Series",
-               "year": 2025,
-               "category": "Luxury Sedan",
-               "fuel_type": "Petrol",
-               "transmission": "Manual",
-               "price": "$100,000"
-           }
-)
-
-vectors.update_document(document_id='43c898a7-6779-4a31-97dc-c86e1d5634e0',document=update_cars)
 
